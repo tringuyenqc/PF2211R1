@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let chieuCao = prompt("Nhập chiều cao(cm):");
+        let canNang = prompt("Nhập cân nặng(kg):");
+
+
+        if((chieuCao !== null) && (canNang !== null)){
+            if((chieuCao !== "") && (canNang !== "")){
+                chieuCao = parseFloat(chieuCao);
+                canNang = parseFloat(canNang);
+                let bmi = canNang/(chieuCao*chieuCao);
+                console.log(`Chỉ số BMI của bạn = ${bmi}` )
+
+                if(bmi < 16){
+                    alert("Gầy độ 3")
+                } else if (16 <= bmi && bmi < 17) {
+                    alert("Gầy độ 2")
+                } else if (16 <= bmi && bmi < 17) {
+                    alert("Gầy độ 2")
+                } else if (17 <= bmi && bmi < 18.5) {
+                    alert("Gầy độ I")
+                } else if (18.5 <= bmi && bmi < 25) {
+                    alert("Bình thường")
+                } else if (25 <= bmi && bmi < 30) {
+                    alert("Thừa cân")
+                }
+            } else {
+                alert("Mời bạn nhập các chỉ số!")
+            }
+        } else {
+            alert("Mời bạn nhập các chỉ số 2!")
+        }
+
+    </script>
+</body>
+</html>

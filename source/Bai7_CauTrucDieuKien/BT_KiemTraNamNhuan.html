@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>KIỂM TRA NĂM/THÁNG</h2>
+    <form>
+        Năm: <input type="number" id="nam" min="1990">
+        <br>
+        Tháng: <input type="number" id="thang" min="1" max="12">
+        <br>
+        <button type="button" onclick="KiemTraNamThang()">Kiểm tra</button>
+    </form>
+    <div id="kqNam"></div>
+    <div id="kqThang"></div>
+    <script>
+        function KiemTraNamThang(){
+                let nam = document.getElementById("nam").value;
+                let thang = document.getElementById("thang").value;
+
+            if(nam != "" && thang != ""){
+
+                nam = parseInt(nam);
+                thang = parseInt(thang);
+                let laNamNhuan = false;
+                if(nam%400 == 0){
+                    laNamNhuan = true;
+                } else if((nam%4 == 0) && (nam%100 != 0)) {
+                    laNamNhuan = true;
+                } else {
+                    laNamNhuan = false
+                }
+
+                let chuoiNam = "";
+                if(laNamNhuan) {
+                    chuoiNam += `${nam} là năm nhuận`;
+                } else {
+                    chuoiNam += `${nam} không phải là năm nhuận`;
+                }
+
+                let soNgay;
+                switch(thang){
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                        soNgay = 31;
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        soNgay = 30;
+                        break;
+                    case 2:
+                        if(laNamNhuan){
+                            soNgay = 29;
+                        } else {
+                            soNgay = 28;
+                        }
+                        break;
+                    default:
+                        soNgay = 0;
+                        break;
+                }
+                let chuoiThang = `Tháng ${thang} có ${soNgay} ngày`;
+                
+                document.getElementById("kqNam").innerHTML = chuoiNam;
+                document.getElementById("kqThang").innerHTML = chuoiThang;
+                
+            } else {
+                alert("Vui lòng nhập đủ năm/tháng")
+            }
+        }
+    </script>
+</body>
+</html>
