@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TÍNH LÃI SUẤT NGÂN HÀNG</h1>
+
+    Số tiền vay: <input type="number" id="tien_vay"/>
+    <br>
+    Lãi suất/năm: <input type="number" id="lai_suat"/>
+    <br>
+    Số năm vay: <input type="number" id="so_nam"/>
+    <br>
+    <button type = "button" onclick = "xuLyLaiSuat()">Tính lãi suất</button>
+    <div id = "ket_qua"></div>
+
+    <script>
+        function xuLyLaiSuat(){
+            let tienVay = parseInt(document.getElementById("tien_vay").value);
+            let laiSuat = parseInt(document.getElementById("lai_suat").value);
+            let soNam = parseFFloat(document.getElementById("so_nam").value);
+
+            let ketQua = tienVay + soNam*tienVay*(laiSuat/100);
+            document.getElementById("ket_qua").innerHTML = ketQua;
+        }
+    </script>
+
+</body>
+'
+
+</html>
